@@ -37,4 +37,31 @@ export class UserComponent implements OnInit {
       }
     );
   }
+
+  btAdd(){
+    alert("yo!");
+  }
+
+  btEdit(arg){
+    alert("Edit! " + arg);
+  }
+
+  btDelete(arg){
+    // alert("delete! " + arg);
+    if(confirm("Are you sure you want to delete?")){
+      this.isSubmitting = true;
+      
+      this.usersService
+      .delete(arg)
+      .subscribe(
+        data => {
+          this.getData();
+        },
+        err => {
+          this.errors = err;
+        }
+      );
+      
+    }
+  }
 }

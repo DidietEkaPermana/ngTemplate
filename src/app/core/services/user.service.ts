@@ -84,7 +84,7 @@ export class UserService {
     return this.apiService
     .post('/user', { user })
     .pipe(map(data => {
-      return data.user;
+      return data;
     }));
   }
 

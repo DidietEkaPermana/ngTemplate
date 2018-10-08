@@ -148,7 +148,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 localStorage.setItem('users', JSON.stringify(users));
 
                 // respond 200 OK
-                return of(new HttpResponse({ status: 200 }));
+                return of(new HttpResponse({ status: 200, body: newUser }));
             }
 
             // delete user

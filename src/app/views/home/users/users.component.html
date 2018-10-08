@@ -3,9 +3,11 @@
         <div class="col-lg-12">
             <div class="card">
               <div class="card-header">
-                <i class="fa fa-align-justify"></i> Striped Table
+                <i class="fa fa-align-justify"></i> Users List
               </div>
               <div class="card-body">
+                <button class="btn btn-primary" type="button" (click)="btAdd()" >Add</button> <br>
+                <br>
                 <table class="table table-striped">
                   <thead>
                     <tr>
@@ -18,7 +20,10 @@
                     <tr *ngFor="let data of dataList">
                       <td>{{data.username}}</td>
                       <td>{{data.email}}</td>
-                      <td><button class="btn btn-sm btn-danger" >Delete</button></td>
+                      <td>
+                        <button class="btn btn-sm btn-danger" type="button" (click)="btDelete(data.id)" >Delete</button>&nbsp;
+                        <button class="btn btn-sm btn-warning" type="button" (click)="btEdit(data.id)" >Edit</button>
+                      </td>
                     </tr>
                   </tbody>
                 </table>

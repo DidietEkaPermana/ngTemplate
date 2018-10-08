@@ -17,4 +17,13 @@ export class UsersService {
                 }
             ));
     }
+
+    delete(id){
+        return this.apiService.delete('/users/' + id )
+            .pipe(map(
+                data => {
+                    return data;
+                }
+            ));
+    }
 }

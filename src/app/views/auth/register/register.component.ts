@@ -41,7 +41,9 @@ export class RegisterComponent implements OnInit {
     this.userService
     .Insert(credentials)
     .subscribe(
-      data => this.router.navigate([this.returnUrl]),
+      data => {
+        this.router.navigate([this.returnUrl])
+      },
       err => {
         this.errors = err;
         this.isSubmitting = false;
