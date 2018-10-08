@@ -9,30 +9,6 @@ export const navigation = [
     }
   },
   {
-    name: 'Item List',
-    url: '/home/itemlist',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info'
-    }
-  },
-  {
-    name: 'Item Input',
-    url: '/home/iteminput',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info'
-    }
-  },
-  {
-    name: 'Item View',
-    url: '/home/itemview',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info'
-    }
-  },
-  {
     name: 'Users',
     url: '/home/users',
     icon: 'icon-speedometer',
