@@ -5,7 +5,8 @@ import { Routes,
 import { AuthGuard } from '../../core';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserComponent } from './users/users.component';
+import { UsersComponent } from './users/users.component';
+import { UserDetailComponent } from './users/user-detail.component';
 
 const routes: Routes = [
   {
@@ -17,9 +18,16 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   }, {
     path: 'users',
-    component: UserComponent,
+    component: UsersComponent,
     data: {
       title: 'Users List'
+    },
+    canActivate: [AuthGuard]
+  }, {
+    path: 'userDetail',
+    component: UserDetailComponent,
+    data: {
+      title: 'User Detail'
     },
     canActivate: [AuthGuard]
   }

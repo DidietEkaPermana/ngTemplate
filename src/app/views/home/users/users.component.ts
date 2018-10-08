@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Errors } from '../../../core';
 import { UsersService } from './users.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   templateUrl: 'users.component.html'
 })
-export class UserComponent implements OnInit {
+export class UsersComponent implements OnInit {
   isSubmitting = false;
   errors: Errors = {errors: {}};
   dataList: {};
   page: 1;
 
   constructor(
+    private router: Router,
     private usersService: UsersService
   ) { }
 
@@ -39,15 +42,16 @@ export class UserComponent implements OnInit {
   }
 
   btAdd(){
-    alert("yo!");
+    this.usersService.changeMessage("0");
+    this.router.navigate(['/home/userDetail']);
   }
 
   btEdit(arg){
-    alert("Edit! " + arg);
+    this.usersService.changeMessage(arg);
+    this.router.navigate(['/home/userDetail']);
   }
 
   btDelete(arg){
-    // alert("delete! " + arg);
     if(confirm("Are you sure you want to delete?")){
       this.isSubmitting = true;
       
@@ -61,7 +65,7 @@ export class UserComponent implements OnInit {
           this.errors = err;
         }
       );
-      
+
     }
   }
 }

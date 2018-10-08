@@ -6,7 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserComponent } from './users/users.component';
+import { UsersComponent } from './users/users.component';
+import { UserDetailComponent } from './users/user-detail.component';
 import { UsersService } from './users/users.service';
 
 import { HomeRoutingModule } from './home-routing.module';
@@ -21,7 +22,8 @@ import { HomeRoutingModule } from './home-routing.module';
   ],
   declarations: [
     DashboardComponent,
-    UserComponent
+    UsersComponent,
+    UserDetailComponent
   ],
   providers: [
     UsersService
