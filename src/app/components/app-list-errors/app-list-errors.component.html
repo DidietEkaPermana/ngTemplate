@@ -1,0 +1,3 @@
+<div class="alert alert-danger" role="alert" [hidden]="(errorList.length == 0)" *ngIf="errorList">
+  <a *ngFor="let error of errorList"><strong>{{ error }}</strong><br></a>
+</div>
