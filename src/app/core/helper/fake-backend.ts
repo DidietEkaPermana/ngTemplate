@@ -111,7 +111,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             // register user
             if (request.url.endsWith('/users/register') && request.method === 'POST') {
                 // get new user object from post body
-                let newUser = request.body;
+                let newUser = request.body.data;
 
                 // validation
                 let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length;
@@ -134,7 +134,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             // insert user
             if (request.url.endsWith('/user') && request.method === 'POST') {
                 // get new user object from post body
-                var newUser = request.body;
+                var newUser = request.body.data;
 
                 // validation
                 let duplicateUser = users.filter(user => { return user.email === newUser.email; });
