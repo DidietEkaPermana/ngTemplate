@@ -1,3 +1,13 @@
+ngTemplate
+==========
+
+This project is using free CoreUI(https://coreui.io/) template with additional code which might be use in real time project. If you have new module:
+1. you can create new folder in src/app/views
+2. add your routing in home-routing.module.ts
+3. add link to able to view on _nav.ts
+
+All setting is wrote down on environments folder, such as API URL. for now to simplify dev, I create fake-backend.ts in which would intercept all request to API server.
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
@@ -17,9 +27,3 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-
-## todo
-
-1. creation of list-error, in app/components/app-list-errors can not be used in child component like app/views/auth/login/login.component. (done)
-2. create master with GRID and CRUD.
