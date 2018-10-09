@@ -17,6 +17,15 @@ export class UsersService {
         this.messageSource.next(message)
     }
 
+    insert(data){
+        return this.apiService.post('/user', { data })
+            .pipe(map(
+                data => {
+                    return data;
+                }
+            ));
+    }
+
     get(page, filter) {
         return this.apiService.post('/users', { page, filter })
             .pipe(map(

@@ -116,7 +116,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 // validation
                 let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length;
                 if (duplicateUser) {
-                    return throwError({ error: { message: 'Username "' + newUser.username + '" is already taken' } });
+                    return throwError({ 
+                        status: 400, 
+                        error: { errors: { message: 'Email "' + newUser.email + '" is already taken' } }
+                    });
                 }
 
                 // save new user
@@ -125,21 +128,23 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 localStorage.setItem('users', JSON.stringify(users));
 
                 // respond 200 OK
-                return of(new HttpResponse({ status: 200 }));
+                return of(new HttpResponse({ status: 200, body: newUser }));
             }
 
             // insert user
             if (request.url.endsWith('/user') && request.method === 'POST') {
                 // get new user object from post body
-                var newUser = request.body.user;
+                var newUser = request.body;
 
                 // validation
-                let duplicateUser = users.filter(user => { return user.email === newUser.email; }).length;
-                if (duplicateUser) {
-                    return throwError({ 
-                        status: 400, 
-                        error: { errors: { message: 'Email "' + newUser.email + '" is already taken' } }
-                    });
+                let duplicateUser = users.filter(user => { return user.email === newUser.email; });
+                if (duplicateUser.length) {
+                    
+                    duplicateUser[0].username = newUser.username;
+                    localStorage.setItem('users', JSON.stringify(users));
+
+                    // respond 200 OK
+                    return of(new HttpResponse({ status: 200, body: duplicateUser[0] }));
                 }
 
                 // save new user

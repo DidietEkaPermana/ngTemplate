@@ -61,19 +61,19 @@ export class UserDetailComponent implements OnInit {
         // this.isSubmitting = true;
         this.errors = {errors: {}};
 
-        // const credentials = this.authForm.value;
+        const credentials = this.authForm.value;
 
-        // this.usersService
-        // .Insert(credentials)
-        // .subscribe(
-        // data => {
-        //     this.router.navigate([this.returnUrl])
-        // },
-        // err => {
-        //     this.errors = err;
-        //     this.isSubmitting = false;
-        // }
-        // );
-        alert("ok save");
+        this.usersService
+        .insert(credentials)
+        .subscribe(
+        data => {
+            this.router.navigate(['/home/users'])
+        },
+        err => {
+            this.errors = err;
+            this.isSubmitting = false;
+        }
+        );
+        // alert("ok save");
     }
 }

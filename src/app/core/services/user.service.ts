@@ -82,7 +82,7 @@ export class UserService {
   // insert the user on the server (email, pass, etc)
   Insert(user): Observable<User> {
     return this.apiService
-    .post('/user', { user })
+    .post('/user/register', { user })
     .pipe(map(data => {
       return data;
     }));
