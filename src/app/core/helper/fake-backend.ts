@@ -109,9 +109,9 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             }
 
             // register user
-            if (request.url.endsWith('/users/register') && request.method === 'POST') {
+            if (request.url.endsWith('/user/register') && request.method === 'POST') {
                 // get new user object from post body
-                let newUser = request.body.data;
+                let newUser = request.body.user;
 
                 // validation
                 let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length;
