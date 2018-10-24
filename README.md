@@ -8,6 +8,10 @@ This project is using free CoreUI(https://coreui.io/) template with additional c
 
 All setting is wrote down on environments folder, such as API URL. for now to simplify dev, I create fake-backend.ts in which would intercept all request to API server.
 
+## Install component
+
+Run `npm install` to install necessary component for app
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
